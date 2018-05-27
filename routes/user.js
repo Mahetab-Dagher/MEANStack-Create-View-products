@@ -6,7 +6,7 @@ var jwt = require('jsonwebtoken');
 
 router.post('/', function(req, res, next) {
 
-    console.log('here ==> ',req.body.password, req.body.email);
+    //console.log('here ==> ',req.body.password, req.body.email);
   var user = new User({
           userName: req.body.userName,
           password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10)),
@@ -15,7 +15,8 @@ router.post('/', function(req, res, next) {
           secretWord: bcrypt.hashSync(req.body.secretWord, bcrypt.genSaltSync(10))
           
       });
-   user.save(function(err, result){
+      var token = jwt.sign({user: user}, 'secret', {expiresIn: 7200});
+  user.save(function(err, result){
        if(err){
            return res.status(500).json({
                title: 'sign up unsuccessfull',
@@ -23,9 +24,13 @@ router.post('/', function(req, res, next) {
                
            });
        }
+
        res.status(201).json({
            title: 'sign up successfull',
-           obj: result
+           obj: result,
+           token: token,
+           userId: result._id,
+           isAdmin: result.isAdmin
        });
    });
 });
