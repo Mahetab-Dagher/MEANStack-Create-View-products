@@ -1,0 +1,32 @@
+import { Component } from '@angular/core';
+import { UserService } from './user.service';
+
+@Component({
+    selector: 'app-user',
+    template:  `
+    <header class="row spacing">
+        <nav class="col-md-8 col-md-offset-2">
+            <ul class="nav nav-pills">
+                <li routerLinkActive="active" *ngIf="!isLoggedIn()"><a [routerLink]="['signup']">Signup</a></li>
+                <li routerLinkActive="active" *ngIf="!isLoggedIn()"><a [routerLink]="['signin']">Signin</a></li>
+                <li routerLinkActive="active" *ngIf="isLoggedIn()"><a [routerLink]="['logout']">Logout</a></li>
+                <li routerLinkActive="active" *ngIf="!isLoggedIn()"><a [routerLink]="['forgetPassword']">Forget Password</a></li>
+            </ul>
+            
+        </nav>
+    </header>
+    <br>
+    <div class="row spacing">
+       <router-outlet></router-outlet>
+    </div> 
+`
+})
+export class UserComponent {
+
+    constructor(private userService: UserService){}
+
+    isLoggedIn(){
+        return this.userService.isLoggedIn();
+    }
+
+}
