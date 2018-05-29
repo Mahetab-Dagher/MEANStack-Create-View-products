@@ -6,10 +6,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
-var appRoutes = require('./routes/app');
-var userRoutes = require('./routes/user');
-var productRoutes = require('./routes/product');
-var bundleRoute = require('./routes/bundleRoute');
+var appRoutes = require('../routes/app');
+var userRoutes = require('../routes/user');
+var productRoutes = require('../routes/product');
+var bundleRoute = require('../routes/bundleRoute');
 
 var app = express();
 mongoose.connect('mongodb://me:me@ds263109.mlab.com:63109/wer');
