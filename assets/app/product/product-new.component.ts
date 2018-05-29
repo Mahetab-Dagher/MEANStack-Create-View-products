@@ -4,6 +4,7 @@ import { Product } from "./product.model";
 import { ProductService } from "./product.service";
 import { FileUploader, FileItem, ParsedResponseHeaders} from 'ng2-file-upload';
 
+
 const URL = 'http://localhost:3000/product/new';
 
 @Component({
@@ -15,9 +16,12 @@ export class NewProductComponent{
     uploader:FileUploader = new FileUploader({url: URL});
     myForm : FormGroup;
     
+    
     constructor(private productService: ProductService){}
 
     onSubmit(){
+        
+        
         this.uploader.onBuildItemForm = (item, form) => {
             form.append('description', this.myForm.value.description);
             form.append('price', this.myForm.value.price);

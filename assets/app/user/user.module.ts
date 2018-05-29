@@ -8,6 +8,7 @@ import { ProductComponent } from '../product/product.component';
 import { LogoutComponent } from './user-logout.component';
 import { ForgetpasswordComponent } from './user-forgetpassword.component';
 import { ResetpasswordComponent } from './user-resetpassword.component';
+import { FileSelectDirective } from 'ng2-file-upload';
 
 
 @NgModule({

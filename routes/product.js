@@ -2,6 +2,13 @@ var express = require('express');
 var router = express.Router();
 var Product = require('../models/product');
 var multer = require('multer');
+/*var cloudinary = require('cloudinary');
+
+cloudinary.config({ 
+    cloud_name: 'da7lq0arh', 
+    api_key: '625899231411198', 
+    api_secret: 'nxUrT_-Tf5bcoOdb82VBxQCNRWo' 
+});*/
 
 var DIR = './public/uploads';
 var upload = multer({
@@ -88,6 +95,9 @@ router.post('/new', /*upload.single('file'),*/function(req, res, next) {
            originalname: originalname
        });*/
       //console.log(req.body.image.filename);
+      /*(cloudinary.uploader.upload(req.file, function(result) { 
+        console.log(result) 
+    });*/
     var product = new Product({
         image: {filename: req.file.filename, originalname: req.file.originalname},
         description: req.body.description,

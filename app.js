@@ -11,7 +11,8 @@ var userRoutes = require('./routes/user');
 var productRoutes = require('./routes/product');
 
 var app = express();
-mongoose.connect('mongodb://localhost:27017/assessment');
+mongoose.connect('mongodb://me:me@ds263109.mlab.com:63109/wer');
+//mongoose.connect('mongodb://localhost:27017/assessment');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

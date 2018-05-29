@@ -6,18 +6,18 @@ import { productRouting } from "./product.routing";
 import { ProductService } from "./product.service";
 import { ProductListComponent } from "./product-list.component";
 import { OneProductComponent } from "./product-one.component";
-import { FileSelectDirective } from "ng2-file-upload";
+import { FileSelectDirective, FileUploadModule } from "ng2-file-upload";
 @NgModule({
     declarations: [
         NewProductComponent,
         ProductListComponent,
-        OneProductComponent,
-        FileSelectDirective
+        OneProductComponent
     ],
     imports: [
 	    CommonModule, 
         ReactiveFormsModule,
-        productRouting
+        productRouting,
+        FileUploadModule
     ],
     providers: [
         ProductService
