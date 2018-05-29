@@ -9,7 +9,7 @@ var mongoose = require('mongoose');
 var appRoutes = require('./routes/app');
 var userRoutes = require('./routes/user');
 var productRoutes = require('./routes/product');
-//var budleRoute = require('./routes/bundleroute');
+var bundleRoute = require('./routes/bundleRoute');
 
 var app = express();
 mongoose.connect('mongodb://me:me@ds263109.mlab.com:63109/wer');
@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/js/app', express.static(path.join(__dirname, 'js', 'app')));
+app.use('/js', bundleRoute);
 
 app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
