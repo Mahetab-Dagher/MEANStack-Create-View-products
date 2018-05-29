@@ -14,7 +14,7 @@ export class UserService{
         //console.log('@_@ ', body);
         const headers = new Headers({'Content-Type': 'application/json'});
         headers.append('Accept', 'q=0.8;application/json;q=0.9');
-        return this.http.post('http://localhost:3000/user',body,{headers: headers})
+        return this.http.post('https://create-view-products.herokuapp.com/user',body,{headers: headers})
         .map((response: Response) => response.json())
         .catch((error: Response) => {return Observable.throw(error.json());
         });
@@ -24,7 +24,7 @@ export class UserService{
         
         const headers = new Headers({'Content-Type': 'application/json'});
         headers.append('Accept', 'q=0.8;application/json;q=0.9');
-        return this.http.post('http://localhost:3000/user/signin',body,{headers: headers})
+        return this.http.post('https://create-view-products.herokuapp.com/user/signin',body,{headers: headers})
         .map((response: Response) => response.json())
         .catch((error: Response) => {return Observable.throw(error.json());
         });
@@ -43,7 +43,7 @@ export class UserService{
         const body = JSON.stringify(data);
         const headers = new Headers({'Content-Type': 'application/json'});
         headers.append('Accept', 'q=0.8;application/json;q=0.9');
-        return this.http.post('http://localhost:3000/user/check',body,{headers: headers})
+        return this.http.post('https://create-view-products.herokuapp.com/user/check',body,{headers: headers})
         .map((response: Response) => response.json())
         .catch((error: Response) => {return Observable.throw(error.json());
         });
@@ -55,7 +55,7 @@ export class UserService{
         //console.log('~_~ ',body);
         const headers = new Headers({'Content-Type': 'application/json'});
         headers.append('Accept', 'q=0.8;application/json;q=0.9');
-        return this.http.patch('http://localhost:3000/user/'+ localStorage.getItem('userId'),body,{headers: headers})
+        return this.http.patch('https://create-view-products.herokuapp.com/user/'+ localStorage.getItem('userId'),body,{headers: headers})
         .map((response: Response) => response.json())
         .catch((error: Response) => {return Observable.throw(error.json());
         });
