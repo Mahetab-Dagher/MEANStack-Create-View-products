@@ -3,6 +3,6 @@ var router = express.Router();
 var path = require('path');
 
 /* GET home page. */
-router.get('/app', express.static(path.join(__dirname, 'js', 'app')));
+router.get('/app', express.static(path.join(__dirname, 'public', 'js', 'app')));
 
 module.exports = router;
