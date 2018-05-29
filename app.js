@@ -35,7 +35,7 @@ app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE, OPTIONS');
   next();
 });
-app.use('/js', budleRoute);
+//app.use('/js', budleRoute);
 app.use('/product', productRoutes);
 app.use('/user', userRoutes);
 app.use('/', appRoutes);
