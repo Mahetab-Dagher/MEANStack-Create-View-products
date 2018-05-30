@@ -36,14 +36,14 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use(path.join('/js','app'), express.static(path.join(__dirname, 'js', 'app')));
+//app.use(path.join('/js','app'), express.static(path.join(__dirname, 'js', 'app')));
 app.use('/product', productRoutes);
 app.use('/user', userRoutes);
 app.use('/', appRoutes);
 
 // catch 404 and forward to error handler
-/* app.use(function(req, res, next) {
+app.use(function(req, res, next) {
   res.render('index');
-}); */
+});
 
 module.exports = app;
